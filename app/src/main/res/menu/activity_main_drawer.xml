@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_control_arm"
+            android:icon="@drawable/arm_robot_drawer"
+            android:title="@string/drawer_control_title" />
+        <item
+            android:id="@+id/nav_saved_movements"
+            android:icon="@drawable/saved_movements"
+            android:title="@string/drawer_saved_mov_title" />
+    </group>
+
+</menu>
