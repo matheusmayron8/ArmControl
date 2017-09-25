@@ -4,7 +4,9 @@ package br.com.mayron.matheus.armrobotcontrol.DAL;
  * Created by Raphael on 25/09/2017.
  */
 
-public class Posicoes {
+public class Posicao {
+
+    int id;
     int cintura;
     int giroPulso;
     int alturaPulso;
@@ -14,6 +16,9 @@ public class Posicoes {
     int velocidade;
 
     //region getters and setters
+    public int getId() { return id; }
+
+    public void setId(int id) { this.id = id; }
 
     public int getCintura() {
         return cintura;
@@ -63,9 +68,14 @@ public class Posicoes {
         this.garra = garra;
     }
 
+    public int getVelocidade() { return velocidade; }
+
+    public void setVelocidade(int velocidade) { this.velocidade = velocidade; }
+
     //endregion
 
-    public Posicoes (int cintura, int giroPulso, int alturaPulso, int cotovelo, int ombro, int garra, int velocidade) {
+    public Posicao(int id, int cintura, int giroPulso, int alturaPulso, int cotovelo, int ombro, int garra, int velocidade) {
+        this.id = id;
         this.cintura = cintura;
         this.giroPulso = giroPulso;
         this.alturaPulso = alturaPulso;
