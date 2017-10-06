@@ -9,4 +9,27 @@
 
     <string name="drawer_control_title">Control Arm Robot</string>
     <string name="drawer_saved_mov_title">Saved Movements</string>
+
+
+    <string name="text_seek">0º</string>
+    <string name="title_activity_conectar">Conectar</string>
+
+
+    <!-- Tela de conexão -->
+    <string name="titulo_pareados">Dispositivos Pareados</string>
+    <string name="aviso_pareados">Se o dispositivo não estiver listado, pareie primeiro nas configurações do Android.</string>
+    <string name="conectando">Conectando…</string>
+
+
+    <!-- Tela de listagem de movimentos -->
+    <string name="titulo_lista_movimentos_salvos">Movimentos existentes</string>
+    <string name="botao_novo_movimento">Novo movimento</string>
+    <string name="botao_cancelar">Cancelar</string>
+
+
+    <!-- Layout item movimento -->
+    <string name="descricao">Descrição do movimento</string>
+
+    <!-- Tela de movimentos salvos -->
+    <string name="titulo_historico_movimentos">Movimentos Salvos</string>
 </resources>

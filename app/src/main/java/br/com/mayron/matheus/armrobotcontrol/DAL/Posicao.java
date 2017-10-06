@@ -1,10 +1,15 @@
 package br.com.mayron.matheus.armrobotcontrol.DAL;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.util.Locale;
+
 /**
  * Created by Raphael on 25/09/2017.
  */
 
-public class Posicao {
+public class Posicao implements Parcelable {
 
     int id;
     int cintura;
@@ -85,8 +90,59 @@ public class Posicao {
         this.velocidade = velocidade;
     }
 
+    public Posicao(){
+        id = 0;
+        velocidade = 2;
+        cintura = 10;
+        giroPulso = 150;
+        alturaPulso = 130;
+        cotovelo = 110;
+        ombro = 100;
+        garra = 100;
+    }
+
     @Override
     public String toString() {
-        return String.format("{%d;%d;%d;%d;%d;%d;%d}", cintura,  giroPulso,  alturaPulso,  cotovelo,  ombro,  garra,  velocidade);
+        return String.format(new Locale("pt-br"),"{%d;%d;%d;%d;%d;%d;%d}", velocidade, cintura,  giroPulso,  alturaPulso,  cotovelo,  ombro,  garra);
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(id);
+        parcel.writeInt(cintura);
+        parcel.writeInt(giroPulso);
+        parcel.writeInt(alturaPulso);
+        parcel.writeInt(cotovelo);
+        parcel.writeInt(ombro);
+        parcel.writeInt(garra);
+        parcel.writeInt(velocidade);
+    }
+
+    protected Posicao(Parcel in) {
+        id = in.readInt();
+        cintura = in.readInt();
+        giroPulso = in.readInt();
+        alturaPulso = in.readInt();
+        cotovelo = in.readInt();
+        ombro = in.readInt();
+        garra = in.readInt();
+        velocidade = in.readInt();
+    }
+
+    public static final Creator<Posicao> CREATOR = new Creator<Posicao>() {
+        @Override
+        public Posicao createFromParcel(Parcel in) {
+            return new Posicao(in);
+        }
+
+        @Override
+        public Posicao[] newArray(int size) {
+            return new Posicao[size];
+        }
+    };
 }

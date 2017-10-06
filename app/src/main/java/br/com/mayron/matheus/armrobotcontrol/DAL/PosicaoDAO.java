@@ -67,6 +67,12 @@ public class PosicaoDAO {
         return posicoes;
     }
 
+    public Posicao recuperarPosicaoPorId(int id){
+        String queryReturnAll = "SELECT * FROM " + NOME_TABELA + " WHERE " + COLUNA_ID + " = " + id;
+        Cursor cursor = dataBase.rawQuery(queryReturnAll, null);
+        return construirosPosicaoPorCursor(cursor);
+    }
+
     public void deletar(Posicao posicao) {
 
         String[] valoresParaSubstituir = {
@@ -130,6 +136,42 @@ public class PosicaoDAO {
             cursor.close();
         }
         return posicoes;
+    }
+
+    private Posicao construirosPosicaoPorCursor(Cursor cursor) {
+        Posicao posicao = null;
+        if(cursor == null)
+            return null;
+
+        try {
+
+            if (cursor.moveToFirst()) {
+
+                    int indexID = cursor.getColumnIndex(COLUNA_ID);
+                    int indexCintura = cursor.getColumnIndex(COLUNA_CINTURA);
+                    int indexGiroPulso = cursor.getColumnIndex(COLUNA_GIRO_PULSO);
+                    int indexAlturaPulso = cursor.getColumnIndex(COLUNA_ALTURA_PULSO);
+                    int indexCotovelo = cursor.getColumnIndex(COLUNA_COTOVELO);
+                    int indexOmbro = cursor.getColumnIndex(COLUNA_OMBRO);
+                    int indexGarra = cursor.getColumnIndex(COLUNA_GARRA);
+                    int indexVelocidade = cursor.getColumnIndex(COLUNA_VELOCIDADE);
+
+                    int id = cursor.getInt(indexID);
+                    int cintura = cursor.getInt(indexCintura);
+                    int giroPulso = cursor.getInt(indexGiroPulso);
+                    int alturaPulso = cursor.getInt(indexAlturaPulso);
+                    int cotovelo = cursor.getInt(indexCotovelo);
+                    int ombro = cursor.getInt(indexOmbro);
+                    int garra = cursor.getInt(indexGarra);
+                    int velocidade = cursor.getInt(indexVelocidade);
+
+                    posicao = new Posicao(id, cintura, giroPulso, alturaPulso, cotovelo, ombro, garra, velocidade);
+            }
+
+        } finally {
+            cursor.close();
+        }
+        return posicao;
     }
 
     private ContentValues gerarContentValuesPosicao(Posicao posicao) {
