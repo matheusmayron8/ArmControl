@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:padding="8dp"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/mov_icone"
+        android:layout_gravity="center_vertical"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        app:srcCompat="@drawable/arm_robot_drawer" />
+
+    <TextView
+        android:id="@+id/mov_descricao"
+        android:layout_width="0dp"
+        android:minHeight="32dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginStart="8dp"
+        android:gravity="start|center_vertical"
+        android:layout_weight="1"
+        android:text="@string/descricao" />
+
+</LinearLayout>
